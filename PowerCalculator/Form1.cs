@@ -1,7 +1,11 @@
+using System.Drawing.Text;
+using System.Text.RegularExpressions;
+
 namespace PowerCalculator
 {
     public partial class form_PowerCalculator : Form
     {
+        private bool _decimalEntered = false;
         public form_PowerCalculator()
         {
             InitializeComponent();
@@ -10,8 +14,8 @@ namespace PowerCalculator
 
         private void btn_Calculate_Click(object sender, EventArgs e)
         {
-             try
-               {
+            try
+            {
                 string resistanceStr = txt_Resistance.Text.ToString();
                 string currentStr = txt_Current.Text.ToString();
                 string voltageStr = txt_Voltage.Text.ToString();
@@ -24,30 +28,23 @@ namespace PowerCalculator
                 double power = Double.TryParse(powerStr, out double pow) && !string.IsNullOrEmpty(powerStr) ? pow : 0;
 
                 performCalculations(resistance, current, voltage, power);
-                    
-               }
-               catch (FormatException)
-               {
-                   Console.WriteLine("**************error");
-                   return;
-               }
-        }
 
-        private void txt_Input_TextChanged(object sender, EventArgs e)
-        {
-            TextBox txtBox = sender as TextBox;
-
-            if (txtBox == null && !System.Text.RegularExpressions.Regex.IsMatch(txtBox.Text, @"^[0-9]*\.?[0-9]*$"))
+            }
+            catch (FormatException)
             {
+                Console.WriteLine("**************error");
+                return;
+            }
+        }
+        
+          private void txt_Input_TextChanged(object sender, EventArgs e) 
+          {
+              TextBox? txtBox = sender as TextBox;
 
-                int cursorPosition = txtBox.SelectionStart;
-
-                // MessageBox.Show("Plase enter only numbers and a decimal point");
+            if (txtBox?.Text != null && !Regex.IsMatch(txtBox.Text, @"^[0-9]*([,][0-9]*)?$"))
+            {
                 txtBox.Text = txtBox.Text.Remove(txtBox.Text.Length - 1);
-
-                txtBox.SelectionStart = cursorPosition;
-                txtBox.SelectionLength = 0;
-
+                txtBox.SelectionStart = txtBox.Text.Length;
             }
         }
 
@@ -127,7 +124,7 @@ namespace PowerCalculator
                 calc.calculatePower(0);
                 txt_Resistance.Text = calc.resistance.ToString();
                 txt_Power.Text = calc.power.ToString();
-                
+
             }
             // empty (resistance, voltage)
             else if (resistance == 0 && current != 0 && voltage == 0 && power != 0)

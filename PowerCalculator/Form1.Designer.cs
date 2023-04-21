@@ -59,9 +59,10 @@
             txt_Current.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_Current.Location = new Point(187, 87);
             txt_Current.Name = "txt_Current";
-            txt_Current.RightToLeft = RightToLeft.Yes;
+            txt_Current.RightToLeft = RightToLeft.No;
             txt_Current.Size = new Size(296, 29);
             txt_Current.TabIndex = 3;
+            txt_Current.TextAlign = HorizontalAlignment.Right;
             txt_Current.TextChanged += txt_Input_TextChanged;
             // 
             // lbl_Current
@@ -79,9 +80,10 @@
             txt_Voltage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_Voltage.Location = new Point(187, 134);
             txt_Voltage.Name = "txt_Voltage";
-            txt_Voltage.RightToLeft = RightToLeft.Yes;
+            txt_Voltage.RightToLeft = RightToLeft.No;
             txt_Voltage.Size = new Size(296, 29);
             txt_Voltage.TabIndex = 5;
+            txt_Voltage.TextAlign = HorizontalAlignment.Right;
             txt_Voltage.TextChanged += txt_Input_TextChanged;
             // 
             // lbl_Voltage
@@ -99,9 +101,10 @@
             txt_Power.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_Power.Location = new Point(187, 177);
             txt_Power.Name = "txt_Power";
-            txt_Power.RightToLeft = RightToLeft.Yes;
+            txt_Power.RightToLeft = RightToLeft.No;
             txt_Power.Size = new Size(296, 29);
             txt_Power.TabIndex = 7;
+            txt_Power.TextAlign = HorizontalAlignment.Right;
             txt_Power.TextChanged += txt_Input_TextChanged;
             // 
             // lbl_Power
@@ -179,9 +182,10 @@
             txt_Resistance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_Resistance.Location = new Point(187, 46);
             txt_Resistance.Name = "txt_Resistance";
-            txt_Resistance.RightToLeft = RightToLeft.Yes;
+            txt_Resistance.RightToLeft = RightToLeft.No;
             txt_Resistance.Size = new Size(296, 29);
             txt_Resistance.TabIndex = 15;
+            txt_Resistance.TextAlign = HorizontalAlignment.Right;
             txt_Resistance.TextChanged += txt_Input_TextChanged;
             // 
             // form_PowerCalculator
